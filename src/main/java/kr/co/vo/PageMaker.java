@@ -81,7 +81,7 @@ public class PageMaker {
 	}
 	
 	public String makeSearch(int page)
-	{
+	{ // 원하는 쿼리 스트링을 가진 URI를 생성할 때 UriComponents 클래스 이용.
 		UriComponents uriComponents =
 				UriComponentsBuilder.newInstance()
 								    .queryParam("page", page)

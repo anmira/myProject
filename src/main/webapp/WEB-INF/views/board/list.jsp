@@ -40,6 +40,7 @@
 						
 					</table>
 						<div class="search">
+							<!-- 검색 타입 선택 리스트 -->
 							<select name="searchType">
 								<option value="n"<c:out value="${scri.searchType == null ? 'selected' : ''}"/>>-----</option>
 								<option value="t"<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
@@ -48,9 +49,11 @@
 								<option value="tc"<c:out value="${scri.searchType eq 'tc' ? 'selected' : ''}"/>>제목+내용</option>
 							</select>
 							
+							<!-- 키워드 입력 부분 -->
 							<input type="text" name="keyword" id="keywordInput" value="${scri.keyword}"/>
 							
 							<button id="searchBtn" type="button">검색</button>
+							<!-- PageMaker클래스에 만들어진 makeSearch()메소드를 이용해 페이징 번호 링크, 조회 페이지 링크시 만들어지는 파라미터들을 만들어주면 됨.-->
 							<script>
 								$(function(){
 						       	  $('#searchBtn').click(function() {
