@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +25,9 @@ public class MemberController {
 	@Inject
 	MemberService service;
 	
+	@Inject
+	BCryptPasswordEncoder pwdEncoder;
+	
 	// 회원가입 뷰
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public void getRegister() throws Exception{
@@ -40,8 +44,12 @@ public class MemberController {
 		try{
 			if(result==1) {               //입력 된 아이디가 존재하면
 				return "/member/register"; //회원가입 페이지로 돌아가
-			}else if(result==0) {		  // 존재하지 않으면
-				service.register(vo);     // register로
+			}else if(result==0) {		  // 존재하지 않으면 service.register로
+				String inputPass = vo.getUserPass();
+				String pwd = pwdEncoder.encode(inputPass);
+				vo.setUserPass(pwd); // 비번 암호화 해서 vo에 다시 넣기.
+				
+				service.register(vo);   
 			}
 		}catch(Exception e){
 			throw new RuntimeException();
@@ -51,19 +59,20 @@ public class MemberController {
 	
 	// 로그인
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+	public String login(MemberVO vo, HttpServletRequest session, RedirectAttributes rttr) throws Exception{
 		logger.info("login");
 		
-		HttpSession session = req.getSession();
+		session.getAttribute("member");
 		MemberVO login = service.login(vo);
+		boolean pwdMatch = pwdEncoder.matches(vo.getUserPass(), login.getUserPass());
+											// 입력된 비밀번호     ,  암호화된 비밀번호
 		
-		if(login == null) {
-			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", false);
-		}else {
+		if(login != null && pwdMatch == true) {
 			session.setAttribute("member", login);
-		}
-		
+		}else {
+			session.setAttribute("member", null);
+			rttr.addFlashAttribute("msg", false);		
+		}	
 		return "redirect:/";
 	}
 	
@@ -108,7 +117,8 @@ public class MemberController {
 	public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
 		logger.info("memberDelete");
 		
-		// 세션에 있는 member를 가져와 member변수에 넣어줌.
+		// ajax가 해줘!
+	/*	// 세션에 있는 member를 가져와 member변수에 넣어줌.
 		MemberVO member = (MemberVO) session.getAttribute("member");
 		// 세션에 있는 비밀번호
 		String sessionPass = member.getUserPass();
@@ -119,7 +129,7 @@ public class MemberController {
 			rttr.addFlashAttribute("msg", false); // 다르면 메시지 뜸
 			
 			return "redirect:/member/memberDeleteView";
-		}
+		}   */ 
 		service.memberDelete(vo);
 		session.invalidate();
 		return "redirect:/";
