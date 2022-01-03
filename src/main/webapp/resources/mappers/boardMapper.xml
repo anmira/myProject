@@ -7,14 +7,13 @@
 	<!-- 게시판 글 작성 -->
    <insert id="insert">
 	   INSERT INTO MP_BOARD(    BNO 
-	   					      , TITLE 
-	   					      , CONTENT 
-	   					      , WRITER )
-	                 VALUES(    MP_BOARD_SEQ.NEXTVAL 
-	                 		  , #{title}
-	                 		  , #{content}
-	                 		  , #{writer} 
-	                 		  			)   
+	   					       , TITLE 
+	   					       , CONTENT 
+	   					       , WRITER  )
+	                  VALUES(    MP_BOARD_SEQ.NEXTVAL 
+	                 		   , #{title}
+	                 		   , #{content}
+	                 		   , #{writer}  )
    </insert>
    
 <!--    <select id="list" resultType="kr.co.vo.BoardVO">
@@ -88,9 +87,7 @@
 		   <if test="searchType == 'tc'.toString()">AND (TITLE LIKE '%' || #{keyword} || '%') or (CONTENT LIKE '%' || #{keyword} || '%')</if>
    	   </if>   
    </sql>
-   
-   
-   
-   
+
+      
    
    </mapper>

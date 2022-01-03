@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.service.BoardService;
@@ -32,6 +33,13 @@ public class BoardController {
 	@Inject
 	ReplyService replyService;
 		
+	// 메인화면
+	@RequestMapping(value="/board/", method=RequestMethod.GET)
+	public String main() throws Exception{
+		logger.info("main");
+		return "board/main";
+	}
+	
 	// 게시판 글 작성 화면
 	@RequestMapping(value="/board/writeView", method=RequestMethod.GET)
 	public void writeView() throws Exception{
@@ -41,7 +49,7 @@ public class BoardController {
 	// 게시판 글 작성
 	@RequestMapping(value="/board/write", method=RequestMethod.POST)
 	public String write(BoardVO boardvo) throws Exception{
-		logger.info("write");
+		logger.info("write");				
 		
 		service.write(boardvo);
 	

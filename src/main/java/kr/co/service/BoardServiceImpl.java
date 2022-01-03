@@ -1,10 +1,13 @@
 package kr.co.service;
 
 import java.util.List;
+import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.co.dao.BoardDAO;
 import kr.co.vo.BoardVO;
@@ -12,7 +15,7 @@ import kr.co.vo.SearchCriteria;
 
 @Service
 public class BoardServiceImpl implements BoardService{
-
+	
 	@Inject
 	private BoardDAO dao;
 	
@@ -20,7 +23,6 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void write(BoardVO boardVO) throws Exception {
 		dao.write(boardVO);
-		
 	}
 
 	// 게시물 목록 조회

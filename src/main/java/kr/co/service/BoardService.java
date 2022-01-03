@@ -2,6 +2,8 @@ package kr.co.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import kr.co.vo.BoardVO;
 import kr.co.vo.SearchCriteria;
 

@@ -7,11 +7,12 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<!-- 부가적인 테마 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	 	<title>게시판</title>
 	 	<style type="text/css">
 			li {list-style: none; float: left; padding: 6px;}
+			table{backgroud:#F5FFFA; color:#000000;}
+			tr,tr{backgroud:#F5FFFA; color:#000000;}
 		</style>
 	</head>
 	<body>
@@ -26,7 +27,7 @@
 			<hr />			
 			<section id="container">
 				<form role="form" method="get">
-					<table class="table table-hover">
+					<table class="table table-hover" style="border:1px solid #FFD700;">
 						<thead>
 							<tr><th>번호</th><th>제목</th><th>작성자</th><th>등록일</th></tr>	
 						</thead>					
@@ -43,8 +44,7 @@
 								<td><c:out value="${list.writer}" /></td>
 								<td><fmt:formatDate value="${list.regdate}" pattern="yyyy-MM-dd"/></td>
 							</tr>
-						</c:forEach>
-						
+						</c:forEach>				
 					</table>
 						<div class="search row">
 							<div class="col-xs-2 col-sm-2">
