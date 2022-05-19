@@ -88,6 +88,15 @@
    	   </if>   
    </sql>
 
-      
-   
+    <select id="movieTable">
+    	SELECT MOVIE_NO,
+    		   MOVIE_NAME,
+    		   MOVIE_BIRTH,
+    		   MOVIE_GENRE,
+    		   MOVIE_CLICK,
+    		   MOVIE_CONT,
+    		   MOVIE_SITE
+    	FROM MP_MOVIE
+    	WHERE MOVIE_NO  =  #{movie_no}
+    </select>
    </mapper>

@@ -205,7 +205,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="page-deco"OnClick="location.href ='/board/list'" style="cursor:pointer;"></div>
+				<div class="page-deco"OnClick="location.href ='/board/mainPage'" style="cursor:pointer;"></div>
 			</div>
 </body>
 </html>

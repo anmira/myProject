@@ -33,12 +33,20 @@ public class BoardController {
 	@Inject
 	ReplyService replyService;
 		
+	// 메인 진입 전 화면
+	/*
+	 * @RequestMapping(value="/board/main", method=RequestMethod.GET) public String
+	 * main() throws Exception{ logger.info("main"); return "board/main"; }
+	 */
+	
 	// 메인화면
-	@RequestMapping(value="/board/", method=RequestMethod.GET)
-	public String main() throws Exception{
-		logger.info("main");
-		return "board/main";
-	}
+	@RequestMapping(value="/board/mainPage", method=RequestMethod.GET)
+	public String mainPage() throws Exception{
+		logger.info("mainPage");
+		String springVersion = org.springframework.core.SpringVersion.getVersion();
+		System.out.println("스프링 프레임워크버전:"+springVersion);
+		return "board/mainPage";
+		}
 	
 	// 게시판 글 작성 화면
 	@RequestMapping(value="/board/writeView", method=RequestMethod.GET)
