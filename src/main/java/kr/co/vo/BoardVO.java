@@ -9,6 +9,8 @@ public class BoardVO {
 	private String content;
 	private String writer;
 	private Date regdate;
+	private int hit;
+	
 	public int getBno() {
 		return bno;
 	}
@@ -30,6 +32,12 @@ public class BoardVO {
 	public String getWriter() {
 		return writer;
 	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
@@ -39,11 +47,12 @@ public class BoardVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate + ", email=" +  "]";
+				+ regdate + ", hit=" + hit + "]";
 	}
+	
+	
 	
 }

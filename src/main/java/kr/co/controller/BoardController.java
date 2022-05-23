@@ -48,6 +48,13 @@ public class BoardController {
 		return "board/mainPage";
 		}
 	
+	// 인덱스 해보기 템플릿 적용
+		@RequestMapping(value="/board/main", method=RequestMethod.GET)
+		public String main() throws Exception{
+			logger.info("main");
+			return "board/main";
+			}
+	
 	// 게시판 글 작성 화면
 	@RequestMapping(value="/board/writeView", method=RequestMethod.GET)
 	public void writeView() throws Exception{

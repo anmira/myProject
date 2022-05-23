@@ -4,7 +4,7 @@
 
 <html>
 <head>
-	<title>Home</title>
+	<title>로그인</title>
 		<!-- 합쳐지고 최소화된 최신 CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<!-- 부가적인 테마 -->

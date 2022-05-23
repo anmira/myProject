@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
 <html>
 	<head>
 		<!-- 합쳐지고 최소화된 최신 CSS -->
@@ -18,7 +19,7 @@
 	<body>
 		<div class="container">
 			<header>
-				<h1> 게시판</h1>
+				<h1> 여행톡 </h1>
 			</header>
 	
 			<div>
@@ -27,9 +28,9 @@
 			<hr />			
 			<section id="container">
 				<form role="form" method="get">
-					<table class="table table-hover" style="border:1px solid #FFD700;">
+					<table class="table table-hover">
 						<thead>
-							<tr><th>번호</th><th>제목</th><th>작성자</th><th>등록일</th></tr>	
+							<tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr>	
 						</thead>					
 						<c:forEach items="${list}" var="list">
 							<tr>
@@ -58,12 +59,13 @@
 								</select>
 							</div>
 							
-							<div class="col-xs-10 col-sm-10">
+							<div class="col-xs-10 col-sm-3">
 								<div class="input-group">
 									<!-- 키워드 입력 부분 -->
 									<input type="text" name="keyword" id="keywordInput" value="${scri.keyword}" class="form-control"/>
 									<span class="input-group-btn">
 										<button id="searchBtn" type="button" class="btn btn-default">검색</button>
+					
 										<!-- PageMaker클래스에 만들어진 makeSearch()메소드를 이용해 페이징 번호 링크, 조회 페이지 링크시 만들어지는 파라미터들을 만들어주면 됨.-->
 									</span>
 								</div>
@@ -77,7 +79,7 @@
 						        });  
 							</script>
 						</div>
-						<div class="col-md-offset-3">
+						<div class="col-md-offset">
 							<ul class="pagination">
 								<c:if test ="${pageMaker.prev}">
 									<li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>

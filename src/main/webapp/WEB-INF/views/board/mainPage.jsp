@@ -21,17 +21,17 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/resources/img/favicon.png" rel="icon">
+  <link href="/resources/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=https://fonts.googleapis.com/css?family=Inconsolata:400,500,600,700|Raleway:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="${pageContext.request.contextPath}/resources/vendor/aos/aos.css" rel="stylesheet" type="text/css">
-  <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" type="text/css">
-  <link href="${pageContext.request.contextPath}/resources/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css">
+  <link href="<%=request.getContextPath()%>/resources/vendor/aos/aos.css" rel="stylesheet" type="text/css">
+  <link href="<%=request.getContextPath()%>/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="<%=request.getContextPath()%>/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" type="text/css">
+  <link href="<%=request.getContextPath()%>/resources/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css">
 
   <!-- Template Main CSS File -->
   <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
@@ -138,7 +138,7 @@
                 <h3>Boxed Water</h3>
                 <span>Web</span>
               </div>
-              <img class="img-fluid" src="assets/img/img_1.jpg">
+              <img class="img-fluid" src="/resources/img/img_1.jpg">
             </a>
           </div>
           <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
@@ -147,7 +147,7 @@
                 <h3>Build Indoo</h3>
                 <span>Photography</span>
               </div>
-              <img class="img-fluid" src="assets/img/img_2.jpg">
+              <img class="img-fluid" src="/resources/img/img_2.jpg">
             </a>
           </div>
           <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
@@ -156,7 +156,7 @@
                 <h3>Cocooil</h3>
                 <span>Branding</span>
               </div>
-              <img class="img-fluid" src="assets/img/img_3.jpg">
+              <img class="img-fluid" src="/resources/img/img_3.jpg">
             </a>
           </div>
           <div class="item design col-sm-6 col-md-4 col-lg-4 mb-4">
@@ -165,7 +165,7 @@
                 <h3>Nike Shoe</h3>
                 <span>Design</span>
               </div>
-              <img class="img-fluid" src="assets/img/img_4.jpg">
+              <img class="img-fluid" src="/resources/img/img_4.jpg">
             </a>
           </div>
           <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
@@ -174,7 +174,7 @@
                 <h3>Kitchen Sink</h3>
                 <span>Photography</span>
               </div>
-              <img class="img-fluid" src="assets/img/img_5.jpg">
+              <img class="img-fluid" src="/resources/img/img_5.jpg">
             </a>
           </div>
           <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
@@ -183,7 +183,7 @@
                 <h3>Amazon</h3>
                 <span>brandingn</span>
               </div>
-              <img class="img-fluid" src="assets/img/img_6.jpg">
+              <img class="img-fluid" src="/resources/img/img_6.jpg">
             </a>
           </div>
         </div>
@@ -201,22 +201,22 @@
         </div>
         <div class="row">
           <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="assets/img/logo-adobe.png" alt="Image" class="img-fluid"></a>
+            <a href="#" class="client-logo"><img src="/resources/img/logo-adobe.png" alt="Image" class="img-fluid"></a>
           </div>
           <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="assets/img/logo-uber.png" alt="Image" class="img-fluid"></a>
+            <a href="#" class="client-logo"><img src="/resources/img/logo-uber.png" alt="Image" class="img-fluid"></a>
           </div>
           <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="assets/img/logo-apple.png" alt="Image" class="img-fluid"></a>
+            <a href="#" class="client-logo"><img src="/resources/img/logo-apple.png" alt="Image" class="img-fluid"></a>
           </div>
           <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="assets/img/logo-netflix.png" alt="Image" class="img-fluid"></a>
+            <a href="#" class="client-logo"><img src="/resources/img/logo-netflix.png" alt="Image" class="img-fluid"></a>
           </div>
           <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="assets/img/logo-nike.png" alt="Image" class="img-fluid"></a>
+            <a href="#" class="client-logo"><img src="/resources/img/logo-nike.png" alt="Image" class="img-fluid"></a>
           </div>
           <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="assets/img/logo-google.png" alt="Image" class="img-fluid"></a>
+            <a href="#" class="client-logo"><img src="/resources/img/logo-google.png" alt="Image" class="img-fluid"></a>
           </div>
 
         </div>
@@ -296,7 +296,7 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial">
-                  <img src="assets/img/person_1.jpg" alt="Image" class="img-fluid">
+                  <img src="/resources/img/person_1.jpg" alt="Image" class="img-fluid">
                   <blockquote>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
                       explicabo inventore.</p>
@@ -309,7 +309,7 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial">
-                  <img src="assets/img/person_2.jpg" alt="Image" class="img-fluid">
+                  <img src="/resources/img/person_2.jpg" alt="Image" class="img-fluid">
                   <blockquote>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
                       explicabo inventore.</p>
@@ -357,14 +357,14 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="<d:url value="/resources/vendor/aos/aos.js"/>"></script>
-  <script src="<d:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
-  <script src="<d:url value="/resources/vendor/isotope-layout/isotope.pkgd.min.js"/>"></script>
-  <script src="<d:url value="/resources/vender/swiper/swiper-bundle.min.js"/>"></script>
-  <script src="<d:url value="/resources/vender/php-email-form/validate.js"/>"></script>
+  <script src="<c:url value="resources/vendor/aos/aos.js"/>"></script>
+  <script src="<c:url value="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+  <script src="<c:url value="resources/vendor/isotope-layout/isotope.pkgd.min.js"/>"></script>
+  <script src="<c:url value="resources/vender/swiper/swiper-bundle.min.js"/>"></script>
+  <script src="<c:url value="resources/vender/php-email-form/validate.js"/>"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="resources/js/main.js"></script>
 
 </body>
 
