@@ -73,7 +73,7 @@ public class MemberController {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);		
 		}	
-		return "redirect:/";
+		return "board/main";
 	}
 	
 	// 로그아웃

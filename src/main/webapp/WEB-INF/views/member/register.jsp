@@ -1,6 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<style type="text/css">
+	form { margin: 0px 10px; }
+	h2 {
+	  margin-top: 2px;
+	  margin-bottom: 2px;
+	}
+	.container { max-width: 360px; }
+	.divider {
+	  text-align: center;
+	  margin-top: 20px;
+	  margin-bottom: 5px;
+	}
+	.divider hr {
+	  margin: 7px 0px;
+	  width: 35%;
+	}
+	.left { float: left; }
+	.right { float: right; }
+	.img{ display: block; margin: 10px auto; left: 50px;}
+</style>
 <html>
 	<head>
 		<!-- 합쳐지고 최소화된 최신 CSS -->
@@ -9,6 +29,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	 	
 	 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 		<title>회원가입</title>
 	</head>
 	<script type="text/javascript">
@@ -71,34 +92,43 @@
 		
 	</script>
 	<body>
-		<header>
-			<h2>회원가입</h2>
-		</header>
-		<hr/>
-		<section id="container">
-			<form action="/member/register" method="post" id="regForm">
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userId">아이디</label>
-					<input class="form-control" type="text" id="userId" name="userId" />
-					<button class="idChk" type="button" id="idChk" onclick="fn_idChk()" value="N">중복확인</button>
+		<div class="container">
+		<div class="row">
+		<img src="/resources/assets/img/TripPick - MarkMaker Logo1.png" height="250" alt="logo">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					
+					<form action="/member/register" method="post" id="regForm">
+						<div class="form-group">
+							
+							<h2>회원가입</h2>
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="userId">아이디</label>
+							<input id="userId" type="text" maxlength="50" class="form-control" name="userId">
+							<button class="idChk" type="button" id="idChk" onclick="fn_idChk()" value="N">중복확인</button>
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="userPass">비밀번호</label>
+							<input id="userPass" type="password" maxlength="50" class="form-control" name="userPass">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="userName">성명</label>
+							<input id="userName" type="text" maxlength="50" class="form-control" name="userName">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="userMail">이메일</label>
+							<input id="userMail" type="email" maxlength="50" class="form-control" name="userMail">
+						</div>
+						<div class="form-group">
+							<button id="submit" type="submit" class="btn btn-info btn-block">회원가입</button>
+							<button class="cencle btn btn-danger" type="button">취소</button>
+						</div>
+						<p>Already have an account? <a href="/">Sign in</a></p>
+					</form>
 				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userPass">비밀번호</label>
-					<input class="form-control" type="password" id="userPass" name="userPass" />
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userName">성명</label>
-					<input class="form-control" type="text" id="userName" name="userName" />
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="userMail">이메일</label>
-					<input class="form-control" type="text" id="userMail" name="userMail" />
-				</div>
-				<div class="form-group has-feedback">
-					<button class="btn btn-success" type="submit" id="submit">회원가입</button>
-					<button class="cencle btn btn-danger" type="button">취소</button>
-				</div>
-			</form>
-		</section>	
+			</div>
+		</div>
+	</div>
 	</body>	
 </html>

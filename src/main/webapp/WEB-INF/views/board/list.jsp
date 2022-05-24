@@ -12,16 +12,13 @@
 	 	<title>게시판</title>
 	 	<style type="text/css">
 			li {list-style: none; float: left; padding: 6px;}
-			table{backgroud:#F5FFFA; color:#000000;}
+			table{backgroud:#F5FFFA; color:#000000; margin:70px; float: left;}
 			tr,tr{backgroud:#F5FFFA; color:#000000;}
+			p{float: right;}
 		</style>
 	</head>
 	<body>
 		<div class="container">
-			<header>
-				<h1> 여행톡 </h1>
-			</header>
-	
 			<div>
 				<%@include file="nav.jsp" %>
 			</div>
@@ -47,6 +44,7 @@
 							</tr>
 						</c:forEach>				
 					</table>
+						<p><a href="/board/writeView" class="btn btn-default">글 작성</a></p>	
 						<div class="search row">
 							<div class="col-xs-2 col-sm-2">
 								<!-- 검색 타입 선택 리스트 -->
@@ -65,9 +63,10 @@
 									<input type="text" name="keyword" id="keywordInput" value="${scri.keyword}" class="form-control"/>
 									<span class="input-group-btn">
 										<button id="searchBtn" type="button" class="btn btn-default">검색</button>
-					
+										
 										<!-- PageMaker클래스에 만들어진 makeSearch()메소드를 이용해 페이징 번호 링크, 조회 페이지 링크시 만들어지는 파라미터들을 만들어주면 됨.-->
 									</span>
+									
 								</div>
 							</div>
 									

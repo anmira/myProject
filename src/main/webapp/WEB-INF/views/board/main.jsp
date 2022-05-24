@@ -6,6 +6,19 @@
 <html lang="en-US" dir="ltr">
 
   <head>
+  
+  	<style>
+   	/* .col-lg-3 col-sm-6 mb-6-1 {
+  		  float:left; width:200px; height:100px; 
+  	
+  	} 
+  	.col-lg-3 col-sm-6 mb-6-2 {
+  		display:inline-block; width:200px; height:100px; margin-left:10px;
+
+  	
+  	}  */
+  	</style>
+  	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,8 +59,8 @@
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#service">여행보기</a></li>
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/board/list">여행톡</a></li>
-              <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/">Login</a></li>
-              <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="/member/register">Sign Up</a></li>
+              <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/">로그인</a></li>
+              <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="/member/register">회원가입</a></li>
             </ul>
           </div>
         </div>
@@ -62,7 +75,7 @@
             <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 hero-img" src="/resources/assets/img/trip/pexels-brady-knoll-2889491.jpg" alt="hero-header" /></div>
             <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
               <h4 class="fw-bold text-danger mb-3">Best Destinations around the world</h4>
-              <h1 class="hero-title">Travel makes one modest. You see what a tiny place you occupy in the world.</h1>             
+              <h3 class="hero-title">Travel makes one modest. You see what a tiny place you occupy in the world.</h3>             
                 <div class="modal fade" id="popupVideo" tabindex="-1" aria-labelledby="popupVideo" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
@@ -73,58 +86,7 @@
               </div>
             </div>
           </div>
-        </div>
       </section>
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section class="pt-5 pt-md-9" id="service">
-
-        <div class="container">
-          <div class="position-absolute z-index--1 end-0 d-none d-lg-block"><img src="/resources/assets/img/category/shape.svg" style="max-width: 200px" alt="service" /></div>
-          <div class="mb-7 text-center">
-            <h5 class="text-secondary">CATEGORY </h5>
-            <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">We Offer Best Services</h3>
-          </div>
-          <div class="row">
-            <div class="col-lg-3 col-sm-6 mb-6">
-              <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
-                <div class="card-body p-xxl-5 p-4"> <img src="/resources/assets/img/category/icon1.png" width="75" alt="Service" />
-                  <h4 class="mb-3">Calculated Weather</h4>
-                  <p class="mb-0 fw-medium">Built Wicket longer admire do barton vanity itself do in it.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mb-6">
-              <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
-                <div class="card-body p-xxl-5 p-4"> <img src="/resources/assets/img/category/icon2.png" width="75" alt="Service" />
-                  <h4 class="mb-3">Best Flights</h4>
-                  <p class="mb-0 fw-medium">Engrossed listening. Park gate sell they west hard for the.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mb-6">
-              <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
-                <div class="card-body p-xxl-5 p-4"> <img src="/resources/assets/img/category/icon3.png" width="75" alt="Service" />
-                  <h4 class="mb-3">Local Events</h4>
-                  <p class="mb-0 fw-medium">Barton vanity itself do in it. Preferd to men it engrossed listening.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mb-6">
-              <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
-                <div class="card-body p-xxl-5 p-4"> <img src="/resources/assets/img/category/icon4.png" width="75" alt="Service" />
-                  <h4 class="mb-3">Customization</h4>
-                  <p class="mb-0 fw-medium">We deliver outsourced aviation services for military customers</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div><!-- end of .container-->
-
-      </section>
-      <!-- <section> close ============================-->
-      <!-- ============================================-->
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
@@ -133,7 +95,6 @@
         <div class="container">
           <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4"><img src="/resources/assets/img/dest/shape.svg" alt="destination" /></div>
           <div class="mb-7 text-center">
-            <h5 class="text-secondary">Top Selling </h5>
             <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Top Destinations</h3>
           </div>
           <div class="row">
