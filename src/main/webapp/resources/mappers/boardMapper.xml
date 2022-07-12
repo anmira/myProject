@@ -5,17 +5,32 @@
 <mapper namespace="boardMapper">
 
 	<!-- 게시판 글 작성 -->
-   <insert id="insert">
+   <insert id="insert" parameterType="kr.co.vo.BoardVO" useGeneratedKeys="true" keyProperty="bno">
+   		<selectKey keyProperty="bno" resultType="int" order="BEFORE">
+   			SELECT MP_BOARD_SEQ.NEXTVAL FROM DUAL
+   		</selectKey>
 	   INSERT INTO MP_BOARD(    BNO 
 	   					       , TITLE 
 	   					       , CONTENT 
-	   					       , WRITER  )
-	                  VALUES(    MP_BOARD_SEQ.NEXTVAL 
+	   					       , WRITER
+	   					       , COUNTRY
+	   					       , AREA
+	   					       , MONEY
+	   					       , PERIOD  )
+	                  VALUES(    #{bno}
 	                 		   , #{title}
 	                 		   , #{content}
-	                 		   , #{writer}  )
+	                 		   , #{writer}  
+	                 		   , #{country}
+	                 		   , #{area}
+	                 		   , #{money} 
+	                 		   , #{period} )
    </insert>
-   
+   <!-- 1) insert쿼리를 실행기전에 SELECT MP_BOARD_SEQ.NEXTVAL FROM DUAL을 실행
+		2) 실행한 쿼리에서 가져올값 (keyProperty="bno") bno를 int형으로 가져옴
+		3) <insert>안에 있는 keyProperty에 의해 <selectKey>에 있는 keyProperty값 bno를 가져옴
+		4) bno값 파라미터로 넣어줌. -->
+		
 <!--    <select id="list" resultType="kr.co.vo.BoardVO">
    	   SELECT	BNO
    	          , TITLE
@@ -25,12 +40,17 @@
    		 ORDER BY BNO DESC
    </select>
  -->   
+ 
    <select id="read" parameterType="int" resultType="kr.co.vo.BoardVO">
    		SELECT	BNO
    			  , TITLE
    			  , CONTENT
    			  , WRITER
    			  , REGDATE
+   			  , COUNTRY
+	   		  , AREA
+	   		  , MONEY
+	   		  , PERIOD
    		 FROM MP_BOARD
    		 WHERE BNO = #{bno}	  
    </select>
@@ -38,7 +58,11 @@
    <update id="update" parameterType="kr.co.vo.BoardVO">
    		UPDATE MP_BOARD
    		   SET TITLE	=	#{title},
-   		   	   CONTENT  =   #{content}
+   		   	   CONTENT  =   #{content},
+   		   	   COUNTRY  =   #{country,jdbcType=VARCHAR},
+   		   	   AREA		=   #{area,jdbcType=VARCHAR},
+   		   	   MONEY    =   #{money,jdbcType=VARCHAR},
+   		   	   PERIOD  =   #{period,jdbcType=VARCHAR}
    		WHERE  BNO  =  #{bno}
    </update>
    
@@ -48,18 +72,61 @@
    		 WHERE BNO  =  #{bno}
    </delete>
    
+   <insert id="insertFile" parameterType="hashMap">
+   		INSERT INTO MP_FILE(
+   			FILE_NO,
+   			BNO,
+   			ORG_FILE_NAME,
+   			STORED_FILE_NAME,
+   			FILE_SIZE
+   		)VALUES(
+   			SEQ_MP_FILE_NO.NEXTVAL,
+   			#{BNO},
+   			#{ORG_FILE_NAME},
+   			#{STORED_FILE_NAME},
+   			#{FILE_SIZE}
+   		)
+   </insert>
+   
+   <!-- 첨부파일 조회 -->
+   <select id="selectFileList" parameterType="int" resultType="hashMap">
+		SELECT FILE_NO,
+		   	   ORG_FILE_NAME,
+		   	   ROUND(FILE_SIZE/1024,1) AS FILE_SIZE,
+		   	   DEL_GB
+	 	  FROM MP_FILE
+		 WHERE BNO = #{BNO}
+	  	 	AND DEL_GB = 'N'
+	  	 ORDER BY FILE_NO ASC
+   </select>
+   
+   <!-- 첨부파일 수정 -->
+   <update id="updateFile" parameterType="hashMap">
+   		UPDATE MP_FILE SET
+   		DEL_GB = 'Y'
+   		WHERE FILE_NO = #{FILE_NO}
+   </update>
+   
    <select id="listPage" resultType="kr.co.vo.BoardVO" parameterType="kr.co.vo.SearchCriteria">
    		SELECT BNO,
 	           TITLE,
 	   		   CONTENT,
 	           WRITER,
-	           REGDATE
+	           REGDATE,
+	           COUNTRY,
+	   		   AREA,
+	   		   MONEY,
+	   		   PERIOD
 		 FROM  (
 				SELECT BNO,
 			     	   TITLE,
 			           CONTENT,
 			           WRITER,
 			   		   REGDATE,
+			   		   COUNTRY,
+			   		   AREA,
+			   		   MONEY,
+			   		   PERIOD,
 			     	   ROW_NUMBER() OVER(ORDER BY BNO DESC) AS RNUM
 		        FROM MP_BOARD 
 		        WHERE 1=1 
@@ -88,15 +155,4 @@
    	   </if>   
    </sql>
 
-    <select id="movieTable">
-    	SELECT MOVIE_NO,
-    		   MOVIE_NAME,
-    		   MOVIE_BIRTH,
-    		   MOVIE_GENRE,
-    		   MOVIE_CLICK,
-    		   MOVIE_CONT,
-    		   MOVIE_SITE
-    	FROM MP_MOVIE
-    	WHERE MOVIE_NO  =  #{movie_no}
-    </select>
    </mapper>

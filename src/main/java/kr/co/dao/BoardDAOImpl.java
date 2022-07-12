@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.co.vo.BoardVO;
 import kr.co.vo.SearchCriteria;
@@ -19,7 +20,7 @@ public class BoardDAOImpl implements BoardDAO{
 	
 	// 게시글 작성
 	@Override
-	public void write(BoardVO boardVO) throws Exception {
+	public void write(BoardVO boardVO, MultipartHttpServletRequest mpRequest) throws Exception {
 		sqlSession.insert("boardMapper.insert", boardVO);
 		
 	}
@@ -61,6 +62,16 @@ public class BoardDAOImpl implements BoardDAO{
 	public void insertFile(Map<String, Object> map) throws Exception {
 		sqlSession.insert("boardMapper.insertFile", map);
 	}
-
 	
+	// 첨부파일 조회
+	@Override
+	public List<Map<String, Object>> selectFileList(int bno) throws Exception{
+		return sqlSession.selectList("boardMapper.selectFileList", bno);
+	}
+
+	// 첨부파일 수정
+	@Override
+	public void updateFile(Map<String, Object> map) throws Exception{
+		sqlSession.update("boardMapper.updateFile", map);
+	}
 }

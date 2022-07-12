@@ -3,7 +3,7 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 
 <html>
- <head>
+<head>
 	<title>로그인</title>
 		<!-- 합쳐지고 최소화된 최신 CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -22,8 +22,8 @@
 		})	
 		$("#memberUpdateBtn").on("click", function(){
 			location.href="member/memberUpdateView";
-		})	
-	})
+		});
+	});
 </script>
 
 <!-- 네이버아이디로로그인 버튼 노출 영역 -->
@@ -71,8 +71,7 @@ window.addEventListener('load', function () {
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="post" action="/member/login" name="homeForm">
-						<c:if test="${member == null}">
+					<form method="POST" action="/member/login" role="form">
 						<div class="form-group">
 							<h2>로그인</h2>
 						</div>
@@ -91,17 +90,14 @@ window.addEventListener('load', function () {
 						
 						<!-- 네이버 로그인 창으로 이동 -->			
 						<div id="naver_id_login" style="text-align:center">
-						<a href="location.href='${url}'"><img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a>
+						<a href="${url}"><img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a>
 						</div>
 
 						<div class="form-group divider">
 							<hr class="left"><small>New to site?</small><hr class="right">
 						</div>
 						<p class="form-group"><button id="registerBtn" type="button" class="btn btn-info btn-block">회원가입</button></p>
-						</c:if>
-						<c:if test="${member != null}">
 						<p class="form-group">By signing in you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
-						</c:if>
 						<c:if test="${msg == false}">
 							<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
 						</c:if>

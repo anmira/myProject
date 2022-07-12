@@ -3,13 +3,15 @@ package kr.co.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import kr.co.vo.BoardVO;
 import kr.co.vo.SearchCriteria;
 
 public interface BoardDAO {
 	
 	// 게시글 작성
-	public void write(BoardVO boardVO) throws Exception;
+	public void write(BoardVO boardVO, MultipartHttpServletRequest mpRequest) throws Exception;
 	
 	// 게시물 목록 조회
 	public List<BoardVO> list(SearchCriteria scri) throws Exception;
@@ -29,4 +31,9 @@ public interface BoardDAO {
 	// 첨부파일 업로드
 	public void insertFile(Map<String, Object> map) throws Exception;
 	
+	// 첨부파일 조회
+	public List<Map<String, Object>> selectFileList(int bno) throws Exception;
+	
+	// 첨부파일 수정
+	public void updateFile(Map<String, Object> map) throws Exception;
 }

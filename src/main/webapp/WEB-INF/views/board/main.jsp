@@ -46,6 +46,16 @@
 
   </head>
 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			if(member !=null){
+				$(".nav-link fw-medium").hide();
+			}
+			
+		})
+	</script>
+
   <body>
 
     <!-- ===============================================-->
@@ -59,8 +69,20 @@
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#service">여행보기</a></li>
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/board/list">여행톡</a></li>
-              <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/">로그인</a></li>
-              <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="/member/register">회원가입</a></li>
+              
+              <c:choose>
+				<c:when test="${member != null}"><li class="nav-item px-3 px-xl-4"><h4>${member.userId}님 안녕하세요.</h4></li>
+				<li class="nav-item px-3 px-xl-4"><a class="nav-link logout" aria-current="page" href="/member/logout">로그아웃</a></li>
+				</c:when>
+				<c:when test="${sessionId != null}"><li class="nav-item px-3 px-xl-4"><h4>${sessionId}님 안녕하세요.</h4></li>
+				<li class="nav-item px-3 px-xl-4"><a class="nav-link logout" aria-current="page" href="/member/logout">로그아웃</a></li>
+				</c:when>
+	    	<c:otherwise>				
+			  <li class="nav-item px-3 px-xl-4"><a class="nav-link login" aria-current="page" href="/navlogin/login">로그인</a></li>
+			  <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="/member/register">회원가입</a></li>
+			</c:otherwise>
+			 </c:choose>		  	
+              
             </ul>
           </div>
         </div>
@@ -175,7 +197,7 @@
                   <div>
                     <h5 class="fw-medium">Trip To Greece</h5>
                     <p class="fs--1 mb-3 fw-medium">14-29 June | by Robbin joseph</p>
-                    <div class="icon-group mb-4"> <span class="btn icon-item"> <img src="/resources/assets/img/steps/leaf.svg" alt=""/></span><span class="btn icon-item"> <img src="assets/img/steps/map.svg" alt=""/></span><span class="btn icon-item"> <img src="assets/img/steps/send.svg" alt=""/></span>
+                    <div class="icon-group mb-4"> <span class="btn icon-item"> <img src="/resources/assets/img/steps/leaf.svg" alt=""/></span><span class="btn icon-item"> <img src="/resources/assets/img/steps/map.svg" alt=""/></span><span class="btn icon-item"> <img src="/resources/assets/img/steps/send.svg" alt=""/></span>
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="d-flex align-items-center mt-n1"><img class="me-3" src="/resources/assets/img/steps/building.svg" width="18" alt="building" /><span class="fs--1 fw-medium">24 people going</span></div>

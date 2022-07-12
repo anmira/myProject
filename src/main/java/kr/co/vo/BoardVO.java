@@ -9,8 +9,11 @@ public class BoardVO {
 	private String content;
 	private String writer;
 	private Date regdate;
+	private String country;
+	private String area;
+	private String money;
+	private String period;
 	private int hit;
-	
 	public int getBno() {
 		return bno;
 	}
@@ -32,12 +35,6 @@ public class BoardVO {
 	public String getWriter() {
 		return writer;
 	}
-	public int getHit() {
-		return hit;
-	}
-	public void setHit(int hit) {
-		this.hit = hit;
-	}
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
@@ -47,12 +44,43 @@ public class BoardVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	public String getMoney() {
+		return money;
+	}
+	public void setMoney(String money) {
+		this.money = money;
+	}
+	public String getPeriod() {
+		return period;
+	}
+	public void setPeriod(String period) {
+		this.period = period;
+	}
+	
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate + ", hit=" + hit + "]";
+				+ regdate + ", country=" + country + ", area=" + area + ", money=" + money + ", period=" + period
+				+ ", hit=" + hit + "]";
 	}
 	
-	
-	
+
 }

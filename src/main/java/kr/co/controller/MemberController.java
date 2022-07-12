@@ -54,6 +54,7 @@ public class MemberController {
 		}catch(Exception e){
 			throw new RuntimeException();
 		}
+		
 		return "redirect:/";
 	}
 	
@@ -64,16 +65,30 @@ public class MemberController {
 		
 		session.getAttribute("member");
 		MemberVO login = service.login(vo);
+		
+		// 이거 안쓰면 db에 없는 아이디를 입력하고 로그인하면 에러코드 발생
+			if(login == null ) { 
+				rttr.addFlashAttribute("msg", false);
+				return "redirect:/";
+			}
+				
 		boolean pwdMatch = pwdEncoder.matches(vo.getUserPass(), login.getUserPass());
-											// 입력된 비밀번호     ,  암호화된 비밀번호
+											// 입력된 비밀번호     ,  암호화된 비밀번호  (인코딩 되지 않은 pw, 인코딩 된 pw 비교!)
 		
 		if(login != null && pwdMatch == true) {
 			session.setAttribute("member", login);
 		}else {
 			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", false);		
+			rttr.addFlashAttribute("msg", false);	
+			
+			/* return "redirect:/"; */
 		}	
-		return "board/main";
+		//System.out.println("입력된 비번:"+vo.getUserPass());
+		//System.out.println("암호화된 비번:"+login.getUserPass());
+		System.out.println("login:"+login);
+		System.out.println("pwdMatch:"+pwdMatch);
+		System.out.println("login:"+vo);
+		return "redirect:/board/main";
 	}
 	
 	// 로그아웃
@@ -82,7 +97,7 @@ public class MemberController {
 		
 		session.invalidate();
 		
-		return "redirect:/";
+		return "redirect:/navlogin/login";
 	}
 	
 	// 회원정보 수정 뷰

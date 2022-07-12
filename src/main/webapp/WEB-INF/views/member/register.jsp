@@ -36,7 +36,7 @@
 		$(document).ready(function(){
 			// 취소
 			$(".cencle").on("click", function(){			
-				location.href = "/login";				    
+				location.href = "/board/main";				    
 			})
 		
 			$("#submit").on("click", function(){
@@ -94,7 +94,7 @@
 	<body>
 		<div class="container">
 		<div class="row">
-		<img src="/resources/assets/img/TripPick - MarkMaker Logo1.png" height="250" alt="logo">
+		<a href="/board/main"><img src="/resources/assets/img/TripPick - MarkMaker Logo1.png" height="250" alt="logo"></a>
 			<div class="panel panel-primary">
 				<div class="panel-body">
 					
